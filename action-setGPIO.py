@@ -39,14 +39,14 @@ def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
-    if intentname == "bertron:GPIOhigh":
-        result_sentence = "Das Licht ist eingeschaltet"
+    if intentname == "dante7597:MoveDeskUp":
+        result_sentence = "Ich bewege den Tisch nach oben"
         # led.on()
         GPIO.output(17,False)
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
-    elif intentname == "bertron:GPIOlow":
-        result_sentence = "Das Licht ist ausgeschaltet"
+    elif intentname == "dante7597:MoveDeskDown":
+        result_sentence = "Ich bewege den Tisch nach unten"
         # led.off()
         GPIO.output(17,True)
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
